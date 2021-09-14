@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'photos.apps.PhotosConfig'
+    'photos.apps.PhotosConfig',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -120,6 +125,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS =[
+    BASE_DIR / 'static'
+]
+
+MEDIA_ROOT =BASE_DIR / 'static/images'
+STATIC_ROOT =BASE_DIR / 'staticfiles'
+
+cloudinary.config( 
+  cloud_name = "caroh-n", 
+  api_key = "811513188329733", 
+  api_secret = "DFAW-79OuI_fRc2wDFWYU8N_UnA",
+
+)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
