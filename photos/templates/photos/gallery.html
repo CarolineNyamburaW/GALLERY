@@ -24,10 +24,10 @@
     background-repeat: no-repeat;
     background-size: cover;
  }
-
-  .image-thumbnail{
-    min-height: 50vh;
+.image-thumbnail{
     object-fit: cover;
+    min-height: 50vh;
+    max-height: 50vh;
 }
 
 .nav{
@@ -60,26 +60,26 @@
   {% load cloudinary %}
   <div class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-black">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black" style="margin-bottom: 5vh;" >
       <div>
-      <a class="navbar-brand m-2" href="#" style=" font-family: 'Great Vibes', cursive; color: #c5c5c5; font-size: 4vh;">Gallery Villa</a>
+      <a class="navbar-brand m-2" href="#" style=" font-family: 'Great Vibes', cursive; color: #cf7927; font-size: 5vh;">Gallery Villa</a>
      </div> 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon-white"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown" >
         <ul class="navbar-nav" >
           <li class="nav-item" >
-            <a class="nav-link" href="{% url 'gallery' %}" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 3vh;">Gallery</a>
+            <a class="nav-link" href="{% url 'gallery' %}" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 4vh;">Gallery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'add' %}" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 3vh;">Add Photo</a>
+            <a class="nav-link" href="{% url 'add' %}" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 4vh;">Add Photo</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 3vh;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 4vh;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categories
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-family: 'Rancho', cursive;">
               {% for category in categories %}
                   <a class="dropdown-item" href="{% url 'gallery' %}?category={{category.name}}">
                               {{category.name}}
@@ -88,13 +88,13 @@
             </div>
 
           </li>
-          <a class="nav-link nav-link disabled" href="#" style="font-family: 'Rancho', cursive; color: #c5c5c5; font-size: 3vh;">Sign In/Sign Up</a>
+          <a class="nav-link nav-link disabled" href="#" style="font-family: 'Rancho', cursive; color: #5c5858; font-size: 4vh;">Sign In/Sign Up</a>
 
         </ul>
       </div>
     </nav>
 
-    <div class="row m-5">
+    <div class="row ">
 
 
       <div class="col-md-12">
@@ -102,13 +102,13 @@
         <div class="row">
        
           {% for photo in photos %}
-          <div class="col-md-4">
+          <div class="col-md-3"  style="font-family: 'Rancho', cursive; color: #cf7927; font-size: 4vh;">
               <div class="card my-2" style="background-color: #d8d3d3;">
                 <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
                 <div class="card-body">
                   <small>Category: {{photo.category.name}}</small>
                 </div>
-                <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View Description</a>
+                <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1" style="background-color: #cf7927">View Description</a>
               </div>
           </div>
           {% empty %}
