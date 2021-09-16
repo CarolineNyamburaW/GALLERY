@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w)^d4md68ks=uhlb8f7+9xtxn0y%066smrvmb@mmybbtk6w2ph'
+SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -89,8 +89,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 PRODUCTION  = environ.get('PRODUCTION')
-if PRODUCTION:
+# PRODUCTION = 'False'
+
+if PRODUCTION == 'True':
     DATABASES['default'] = dj_database_url.config()
 
 # Password validation
@@ -140,9 +143,9 @@ MEDIA_ROOT =BASE_DIR / 'static/images'
 STATIC_ROOT =BASE_DIR / 'staticfiles'
 
 cloudinary.config( 
-  cloud_name = "caroh-n", 
-  api_key = "811513188329733", 
-  api_secret = "DFAW-79OuI_fRc2wDFWYU8N_UnA",
+  cloud_name = environ.get('cloud_name'), 
+  api_key = environ.get('api_key'), 
+  api_secret = environ.get('api_secret'),
 
 )
 
