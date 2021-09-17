@@ -148,9 +148,9 @@ MEDIA_ROOT =BASE_DIR / 'static/images'
 STATIC_ROOT =BASE_DIR / 'staticfiles'
 
 cloudinary.config( 
-  cloud_name = environ.get('cloud_name'), 
-  api_key = environ.get('api_key'), 
-  api_secret = environ.get('api_secret'),
+  cloud_name = config('cloud_name'), 
+  api_key = config('api_key'), 
+  api_secret = config('api_secret'),
 
 )
 
