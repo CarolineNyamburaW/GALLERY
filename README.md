@@ -1,7 +1,7 @@
 # GALLERY VILLA
 
 -  This project was generated with [python](https://www.python.org/) 
-#### By **Eudes Charles**
+#### By **Caroline W. Nyambura**
 
 ## Description
 - A personal gallery application that you display your photos for others to see.
@@ -27,8 +27,6 @@ To fix a bug or enhance an existing module, follow these steps:
 - heroku & heroku cli
 - get and post methods
 - VSCode, Sublime Text, Brackets any Text Editor
-
-
 
 Link to the site : 
 
